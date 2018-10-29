@@ -30,8 +30,6 @@ module.exports = function (app) {
 
     function isLoggedIn(req, res, next) {
 
-        console.log(req, "IS LOGGED IN")
-
         if (req.isAuthenticated())
 
             return next();
