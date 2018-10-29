@@ -41,6 +41,11 @@ module.exports = function(sequelize, Sequelize) {
         last_login: {
             type: Sequelize.DATE
         },
+
+        facebookId: {
+            type: Sequelize.STRING,
+            unique: true
+        },
  
         status: {
             type: Sequelize.ENUM('active', 'inactive'),

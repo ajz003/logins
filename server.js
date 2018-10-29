@@ -4,6 +4,7 @@ var passport = require('passport');
 var session = require('express-session');
 var bodyParser = require('body-parser');
 var exphbs = require('express-handlebars');
+var dotenv = require('dotenv').config()
 
 //For BodyParser
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -50,13 +51,11 @@ var PORT = process.env.PORT || 3000;
 
 // {force: true}
 
-models.sequelize.sync().then(function() {
+models.sequelize.sync({force: true}).then(function() {
 
     app.listen(PORT, function() {
         console.log("App listening on PORT " + PORT);
       });
-    
-    
 
 });
 
