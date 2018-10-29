@@ -49,18 +49,19 @@ var PORT = process.env.PORT || 3000;
 //Sync Database
 models.sequelize.sync().then(function () {
 
-    app.listen(PORT, function (err) {
-
-        if (!err)
-            console.log("Site is live");
-        else console.log(err)
-    
-    });
 
     console.log('Nice! Database looks fine')
 
 }).catch(function (err) {
 
     console.log(err, "Something went wrong with the Database Update!")
+
+});
+
+app.listen(PORT, function (err) {
+
+    if (!err)
+        console.log("Site is live");
+    else console.log(err)
 
 });
