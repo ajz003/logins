@@ -56,8 +56,9 @@ models.sequelize.sync().then(function () {
 
 });
 
+var PORT = process.env.PORT || 3000;
 
-app.listen(3000, function (err) {
+app.listen(PORT, function (err) {
 
     if (!err)
         console.log("Site is live");
