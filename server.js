@@ -44,24 +44,14 @@ require('./app/config/passport/passport.js')(passport, models.user);
 var authRoute = require('./app/routes/auth.js')(app, passport);
 
 
-var PORT = process.env.PORT || 3000;
 
 //Sync Database
-models.sequelize.sync().then(function () {
+// listen on port 3000
+var PORT = process.env.PORT || 3000;
 
-
-    console.log('Nice! Database looks fine')
-
-}).catch(function (err) {
-
-    console.log(err, "Something went wrong with the Database Update!")
-
+models.sequelize.sync({force: true}).then(function() {
+  app.listen(PORT, function() {
+    console.log("App listening on PORT " + PORT);
+  });
 });
 
-app.listen(PORT, function (err) {
-
-    if (!err)
-        console.log("Site is live");
-    else console.log(err)
-
-});
